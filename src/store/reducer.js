@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import ActionTypes from "./action";
+import { actionTypes } from "./action";
 
 let dummyState = {
   name: "hamza",
@@ -12,19 +12,17 @@ export const DummyReducer = (state = dummyState, action) => {
   //     payload: value
   // }
   switch (action.type) {
-    case ActionTypes.UPDATE_NAME:
+    case actionTypes.UPDATE_NAME:
       state = Object.assign({}, state, { name: "Haseeb", ...state });
       return state;
 
-    case ActionTypes.UPDATE_AGE:
+    case actionTypes.UPDATE_AGE:
       state = Object.assign({}, state, { age: 20, ...state });
       return state;
 
     default:
       return state;
   }
-
-  return state;
 };
 
 export default combineReducers({ DummyReducer });
